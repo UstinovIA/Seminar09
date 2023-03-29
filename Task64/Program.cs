@@ -4,12 +4,21 @@
 
 void NaturalNumbersDesc(int num)
 {
-    if(num == 0) return;
+    if (num == 0) return;
     Console.Write($"{num} ");
     NaturalNumbersDesc(num - 1);
 }
 
+bool IsNaturalNum(int num)
+{
+    return num > 0;
+}
+
 Console.Write("Введите натуральное число: ");
 int number = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine($"Натуральные числа в промежутке от {number} до 1:");
-NaturalNumbersDesc(number);
+if(IsNaturalNum(number))
+{
+    Console.WriteLine($"Натуральные числа в промежутке от {number} до 1:");
+    NaturalNumbersDesc(number);
+}
+else Console.WriteLine("Введенно ненатуральное число");
